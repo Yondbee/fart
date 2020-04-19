@@ -30,8 +30,10 @@ import tensorflow_hub as hub
 hub_module = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
 
 from flask import Flask, send_file, request
+from flask_cors import CORS
 from werkzeug.utils import secure_filename
 app = Flask(__name__)
+CORS(app)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 

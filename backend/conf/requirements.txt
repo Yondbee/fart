@@ -1,6 +1,7 @@
 flask==1.1.2
 honcho==1.0.1
 gunicorn==20.0.4
+flask-cors
 numpy
 tensorflow
 tensorflow_hub
