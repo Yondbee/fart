@@ -24,6 +24,11 @@ sudo bash install-logging-agent.sh
 apt-get update
 apt-get install -yq git supervisor python python-pip
 pip install --upgrade pip virtualenv
+pip install numpy
+pip install tensorflow
+pip install tensorflow_hub
+pip install pillow
+pip install keras
 
 # Account to own server process
 useradd -m -d /home/pythonapp pythonapp

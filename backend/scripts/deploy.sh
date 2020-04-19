@@ -7,6 +7,7 @@ gcloud compute instances create $MY_INSTANCE_NAME \
     --image-project=debian-cloud \
     --machine-type=g1-small \
     --scopes userinfo-email,cloud-platform \
+    #--accelerator type=nvidia-tesla-t4,count=1 \
     --metadata-from-file startup-script=startup.sh \
     --zone $ZONE \
     --tags http-server
