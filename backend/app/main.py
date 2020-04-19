@@ -14,7 +14,6 @@
 
 import tensorflow as tf
 
-import IPython.display as display
 import numpy as np
 import PIL.Image
 import time
