@@ -28,6 +28,12 @@ pip install --upgrade pip virtualenv
 # Account to own server process
 useradd -m -d /home/pythonapp pythonapp
 
+# Make us sudoers so we can bind to port 80
+usermod -G sudo pythonapp
+
+# Require no password for our sudo
+echo "pythonapp ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
 # Fetch source code
 export HOME=/root
 git clone https://github.com/Yondbee/fart.git /opt/app
