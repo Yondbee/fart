@@ -46,6 +46,7 @@ function App() {
 
     if (leftImage && rightImage && !isLoading)
     {
+      setResultImage(undefined);
       setLoading(true);
       setCurrentMsg('Processing, this might take up to 30 seconds...')
       
@@ -57,17 +58,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>
-          YONDBEE Art Mixer
-        </h2>
-        Like it? <a
+        <h2>Neural Art Mixer</h2>
+        <code><small>by Yondbee</small></code>
+        <p>Like it? <a
           className="App-link"
           href="mailto:info@yondbee.com"
           target="_blank"
           rel="noopener noreferrer"
         >
           Get in touch
-        </a>
+        </a></p>
       </header>
       <main>
         <form method='post' action=''>
@@ -80,7 +80,13 @@ function App() {
             </div>
             <div className="bottom">
               {resultImage ? 
-                <img src={resultImage} className='thumbContainer'/>
+                <>
+                  <div><img src={resultImage} className='thumbContainer'/></div>
+                  <div className="imageLinks">
+                    <a href={resultImage} target="_blank">View Image</a>
+                    <a href={resultImage} download>Save Image</a>
+                  </div>
+                </>
                 : <code>{currentMsg}</code>}
             </div>
           </section>
