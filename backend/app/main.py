@@ -94,7 +94,7 @@ def fartist():
 
     content_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(src.filename))
     src.save(content_path)
-    content_image = load_img(content_path)
+    content_image = load_img(content_path, 1280)
 
     style_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(sty.filename))
     sty.save(style_path)
