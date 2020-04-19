@@ -1,12 +1,15 @@
 #!/bin/sh
 MY_INSTANCE_NAME="fartist1"
-ZONE=europe-west6-b
+ZONE=europe-west2-b
+# Smallest:g1-small
+MACHINE_TYPE=n1-standard-4
 
     #--accelerator type=nvidia-tesla-t4,count=1 \
 gcloud compute instances create $MY_INSTANCE_NAME \
     --image-family=debian-9 \
     --image-project=debian-cloud \
-    --machine-type=g1-small \
+    --machine-type=$MACHINE_TYPE \
+    --min-cpu-platform 'Intel Broadwell' \
     --scopes userinfo-email,cloud-platform \
     --metadata-from-file startup-script=startup.sh \
     --zone $ZONE \
