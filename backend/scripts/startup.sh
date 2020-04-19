@@ -33,15 +33,15 @@ export HOME=/root
 git clone https://github.com/Yondbee/fart.git /opt/app
 
 # Python environment setup
-virtualenv -p python3 /opt/app/gce/env
-source /opt/app/gce/env/bin/activate
-/opt/app/gce/env/bin/pip install -r /opt/app/gce/requirements.txt
+virtualenv -p python3 /opt/app/backend/env
+source /opt/app/backend/env/bin/activate
+/opt/app/backend/env/bin/pip install -r /opt/app/backend/conf/requirements.txt
 
 # Set ownership to newly created account
 chown -R pythonapp:pythonapp /opt/app
 
 # Put supervisor configuration in proper place
-cp /opt/app/gce/python-app.conf /etc/supervisor/conf.d/python-app.conf
+cp /opt/app/backend/conf/python-app.conf /etc/supervisor/conf.d/python-app.conf
 
 # Start service via supervisorctl
 supervisorctl reread
