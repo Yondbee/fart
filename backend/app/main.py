@@ -51,7 +51,7 @@ def load_img(path_to_img, max_dim = None):
     if max_dim != None:
         shape = tf.cast(tf.shape(img)[:-1], tf.float32)
         long_dim = max(shape)
-        scale = max_dim / long_dim
+        scale = min(max_dim, long_dim) / long_dim
 
         new_shape = tf.cast(shape * scale, tf.int32)
 
@@ -94,7 +94,7 @@ def fartist():
 
     content_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(src.filename))
     src.save(content_path)
-    content_image = load_img(content_path, 1280)
+    content_image = load_img(content_path, 1024)
 
     style_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(sty.filename))
     sty.save(style_path)
