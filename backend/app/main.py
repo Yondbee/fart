@@ -93,9 +93,11 @@ def fartist():
     #style_path = tf.keras.utils.get_file('vgthunder.jpg','https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Vincent_van_Gogh_-_Wheatfield_Under_Thunderclouds_-_VGM_F778.jpg/2880px-Vincent_van_Gogh_-_Wheatfield_Under_Thunderclouds_-_VGM_F778.jpg')
 
     content_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(src.filename))
+    src.save(content_path)
     content_image = load_img(content_path)
 
     style_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(sty.filename))
+    sty.save(style_path)
     style_image = load_img(style_path, 512)
     
     stylized_image_tensor = hub_module(tf.constant(content_image), tf.constant(style_image))[0]
