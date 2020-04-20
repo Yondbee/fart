@@ -24,7 +24,7 @@ function App() {
     data.append('sty', rightImage);
         
     try {
-      const result = await fetch('http://34.89.112.32/fartist', {
+      const result = await fetch('https://fartist.yondbee.com/fartist', {
         method: 'POST',
         body: data
       })
